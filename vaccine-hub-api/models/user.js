@@ -2,8 +2,13 @@ const { UnauthorizedError } = require("../utils/errors")
 
 class User {
     static async login(credentials) {
-        // submit email and password
 
+       // const requiredFields = ["email", "password"];
+       // requiredFields.forEach((field) => {
+        //    if (!credentials.hasOwnProperty(field)) {
+        //      throw new BadRequestError("Error! Please input an email and password.");
+        //    }
+        //  });
 
         throw new UnauthorizedError("Invalid email/password combo")
     }

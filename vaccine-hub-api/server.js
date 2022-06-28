@@ -15,6 +15,8 @@ app.use(express.json());
 // log request info
 app.use(morgan("tiny"));
 
+app.use("/auth", auth)
+
 
 app.use((req, res, next) => {
     return next(new NotFoundError());
@@ -29,7 +31,6 @@ app.use((err, req, res, next) => {
     });
 });
   
-app.use("/", auth)
 
 
 const PORT = process.env.PORT || 3001
