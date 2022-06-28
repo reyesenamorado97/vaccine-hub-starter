@@ -1,8 +1,9 @@
 const express = require("express")
 const cors = require("cors")
 const morgan = require("morgan");
-const auth = require("./routes/auth.js")
+const { PORT } = require("../config")
 
+const authRoutes = require("./routes/auth.js")
 
 const { BadRequestError, NotFoundError } = require("./utils/errors")
 
@@ -15,7 +16,7 @@ app.use(express.json());
 // log request info
 app.use(morgan("tiny"));
 
-app.use("/auth", auth)
+app.use("/auth", authRoutes)
 
 
 app.use((req, res, next) => {
@@ -33,7 +34,6 @@ app.use((err, req, res, next) => {
   
 
 
-const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running http://localhost:${PORT}`);

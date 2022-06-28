@@ -4,15 +4,10 @@ const User = require("../models/user")
 const { NotFoundError } = require("../utils/errors")
 
 
-
-// health check
-router.get("/", async  (req, res, next) => {
-    res.status(200).json({ping: "pong"})
-  })
-
 router.post("/login", async (req, res, next) => {
     try {
         // take the users email and password and attempting to authenticate them
+
         const user = await User.login(req.body)
         return res.status(200).json({ user })
       } catch (err) {
@@ -26,7 +21,8 @@ router.post("/register", async (req, res, next) => {
         // and create a new user in our database
         const user = await User.register(req.body)
         return res.status(201).json({ user })
-      } catch (err) {
+    } catch (err) {
+        console.log(err)
         next(err);
       }
 })

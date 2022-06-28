@@ -19,7 +19,6 @@
     "nodemon": "^2.0.18",
     "pg": "^8.7.3"
   },
-  "devDependencies": {},
   "keywords": [],
   "description": ""
 }
